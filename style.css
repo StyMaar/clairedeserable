@@ -1,0 +1,44 @@
+html {
+  background-color: rgb(250,253,255);
+  color:#222;
+  font-family: Lato
+}
+
+nav a {
+  color:inherit;
+  text-decoration: none;
+}
+
+nav > h3 {
+  display: inline;
+  margin-right: 15px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+}
+
+section {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+article {
+  text-align: center;
+}
+
+article img {
+  max-width: 100%;
+}
+
+footer {
+  text-align:center;
+  font-size:0.7em
+}
+
+footer p {
+  margin: 5px;
+}
