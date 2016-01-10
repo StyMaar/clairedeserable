@@ -10,22 +10,36 @@
   <link href='//fonts.googleapis.com/css?family=Lato:400,300,300italic,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
 </head>
 <body>
-  <header>
-    <h1>Claire Désérable</h1>
-
-    <nav>
-      <?php
-      $photo_directories = scandir("photos");
-      if($photo_directories){
-        $i=0;
-        foreach ($photo_directories as $directory){
-          if($i>1){
-            echo "<h3><a href='/claire/gallery/?gallery=$directory'>$directory</a></h3>";
+  <?php
+  function render_menu($position){
+    ?>
+    <header>
+      <h1><a href='/claire/'>Claire Désérable</a></h1>
+      <nav>
+        <?php
+        $photo_directories = scandir("photos");
+        if($photo_directories){
+          $i=0;
+          foreach ($photo_directories as $directory){
+            if($i>1){ //pour éviter de lister . et ..
+              if($directory === $position){
+                echo "<h3 class='current'><a href='/claire/gallery/?gallery=$directory'>$directory</a></h3>";
+              } else {
+                echo "<h3><a href='/claire/gallery/?gallery=$directory'>$directory</a></h3>";
+              }
+              
+            }
+            $i++;
           }
-          $i++;
         }
-      }
-      ?>
-      <h3><a href='/claire/bio-contact'>Bio/contact</a></h3>
-    </nav>
-  </header>
+        if("bio-contact" === $position){
+          echo "<h3 class='current'><a href='/claire/bio-contact'>Bio/contact</a></h3>";
+        } else {
+          echo "<h3><a href='/claire/bio-contact'>Bio/contact</a></h3>";
+        }
+        ?>
+      </nav>
+    </header>
+    <?php
+  }
+  ?>

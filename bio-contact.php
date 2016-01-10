@@ -1,4 +1,7 @@
-<?php include_once("header.php");?>
+<?php 
+include_once("header.php");
+render_menu("bio-contact");
+?>
 <section>
 <h2>Bio</h2>
 <p>Hello, I'm Claire Désérable.</p>

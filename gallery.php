@@ -1,11 +1,12 @@
-<?php include_once("header.php"); ?>
+<?php 
+
+$gallery_name = $_GET["gallery"];
+include_once("header.php"); 
+render_menu($gallery_name);
+?>
 <section>
+  <article>
   <?php 
-
-  $gallery_name = $_GET["gallery"];
-
-  echo "<h2>$gallery_name</h2>";
-  echo "<article>";
 
   preg_match("([^./]*)", $gallery_name, $output_array); //pour éviter les arnaques qui listeraient des fichiers privés 
   if(!empty($output_array)){
@@ -21,7 +22,7 @@
     }
   }
 
-  echo "</article>";
   ?>
+  </article>
 </section>
 <?php include_once("footer.php"); ?>
