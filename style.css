@@ -7,6 +7,9 @@ html {
 nav {
   max-width: 1000px;
   margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 nav a, h1 a {
@@ -15,8 +18,12 @@ nav a, h1 a {
 }
 
 nav > h3 {
-  display: inline;
-  margin-right: 15px;
+  margin: 0px;
+  margin-right: 30px;
+}
+
+nav > h3:last-child {
+  margin-right: 0px;
 }
 
 nav > h3.current {
