@@ -11,18 +11,43 @@ render_menu($gallery_name);
   preg_match("([^./]*)", $gallery_name, $output_array); //pour éviter les arnaques qui listeraient des fichiers privés 
   if(!empty($output_array)){
     $gallery_name = $output_array[0];
+    
+    $photo_directories = scandir("photos");
+    if($photo_directories){
+      $i=0;
+      foreach ($photo_directories as $directory){
+        if($i>1 && $directory != $gallery_name){ //pour éviter de lister . et ..
+          $photos = scandir("photos/$directory");
+          if($photos){
+            $j=0;
+            foreach ($photos as $photo){
+              if($j>3) {
+                break;
+              }
+              if($j>1){ //pour éviter de lister . et ..
+                  echo "<img class='caching' src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='/claire/photos/$directory/$photo' />";
+              }
+              $j++;
+            }
+          }
+        }
+        $i++;
+      }
+    }
+    
+    
     $gallery_path = "photos/$gallery_name/";
     $photos = scandir("$gallery_path");
-    $i=0;
+    $k=0;
     foreach ($photos as $photo){
-      if($i>1){
-        if($i < 4){
-          echo "<a href='/claire/$gallery_path/$photo'><img src='/claire/$gallery_path/$photo'/><a>";
+      if($k>1){ // pour éviter de lister . et ..
+        if($k < 4){
+          echo "<a href='/claire/$gallery_path/$photo'><img src='/claire/$gallery_path/$photo' /></a>";
         }else{
-          echo "<a href='/claire/$gallery_path/$photo'><img src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='/claire/$gallery_path/$photo'><a>";
+          echo "<a href='/claire/$gallery_path/$photo'><img src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='/claire/$gallery_path/$photo' /></a>";
         }
       }
-      $i++;
+      $k++;
     }
   }
 
