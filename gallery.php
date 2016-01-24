@@ -16,7 +16,11 @@ render_menu($gallery_name);
     $i=0;
     foreach ($photos as $photo){
       if($i>1){
-        echo "<img src='/claire/$gallery_path/$photo'/>";
+        if($i < 4){
+          echo "<a href='/claire/$gallery_path/$photo'><img src='/claire/$gallery_path/$photo'/><a>";
+        }else{
+          echo "<a href='/claire/$gallery_path/$photo'><img src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='/claire/$gallery_path/$photo'><a>";
+        }
       }
       $i++;
     }
@@ -25,4 +29,15 @@ render_menu($gallery_name);
   ?>
   </article>
 </section>
+<script>
+function init() {
+  var imgDefer = document.getElementsByTagName('img');
+  for (var i=0; i<imgDefer.length; i++) {
+    if(imgDefer[i].getAttribute('data-src')) {
+      imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
+    } 
+  } 
+}
+window.addEventListener('load', init);
+</script>
 <?php include_once("footer.php"); ?>
