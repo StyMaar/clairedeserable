@@ -1,0 +1,5 @@
+FileETag none
+ExpiresActive On
+ExpiresDefault "access plus 1 years"
+
+SetOutputFilter DEFLATE
