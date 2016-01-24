@@ -1,8 +1,16 @@
 html {
   background-color: rgb(250,253,255);
   color:#222;
-  font-family: Lato
+  font-family: OpenSans
 }
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('/claire/font/OpenSans-Regular.ttf');
+}
+/*
+Complete font list (including the regular one)
+'/claire/font/OpenSans-BoldItalic.ttf' , '/claire/font/OpenSans-Bold.ttf', '/claire/font/OpenSans-Italic.ttf', '/claire/font/OpenSans-LightItalic.ttf', '/claire/font/OpenSans-Light.ttf', '/claire/font/OpenSans-Regular.ttf', '/claire/font/OpenSans-Semibold.ttf'*/
 
 nav {
   max-width: 1000px;
