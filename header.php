@@ -7,7 +7,6 @@
   <meta name="author" content="Claire Désérable">
   <meta name="author" content="StyMaar">
   <link rel="stylesheet" href="/claire/style.css">
-  <link href='//fonts.googleapis.com/css?family=Lato:400,300,300italic,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
 </head>
 <body>
   <?php
