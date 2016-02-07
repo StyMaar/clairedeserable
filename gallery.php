@@ -9,6 +9,8 @@ render_menu($gallery_name);
   <?php 
 
   preg_match("([^./]*)", $gallery_name, $output_array); //pour éviter les arnaques qui listeraient des fichiers privés 
+
+  //gestion du pre-fetching des images d'autres catégories
   if(!empty($output_array)){
     $gallery_name = $output_array[0];
     
