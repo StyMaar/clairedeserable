@@ -26,7 +26,8 @@ render_menu($gallery_name);
               if($j>3) {
                 break;
               }
-              if($j>1){ //pour éviter de lister . et ..
+
+              if(preg_match("(\.(jpg|png|gif|JPG|PNG)$)",$photo)){
                   echo "<img class='caching' src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='/claire/photos/$directory/$photo' />";
               }
               $j++;
@@ -42,7 +43,7 @@ render_menu($gallery_name);
     $photos = scandir("$gallery_path");
     $k=0;
     foreach ($photos as $photo){
-      if($k>1){ // pour éviter de lister . et ..
+      if(preg_match("(\.(jpg|png|gif|JPG|PNG)$)",$photo)){
         if($k < 4){
           echo "<a href='/claire/$gallery_path/$photo'><img src='/claire/$gallery_path/$photo' /></a>";
         }else{
