@@ -1,19 +1,19 @@
-<?php 
+<?php
 
 $gallery_name = $_GET["gallery"];
-include_once("header.php"); 
+include_once("header.php");
 render_menu($gallery_name);
 ?>
 <section>
   <article>
-  <?php 
+  <?php
 
-  preg_match("([^./]*)", $gallery_name, $output_array); //pour éviter les arnaques qui listeraient des fichiers privés 
+  preg_match("([^./]*)", $gallery_name, $output_array); //pour éviter les arnaques qui listeraient des fichiers privés
 
   //gestion du pre-fetching des images d'autres catégories
   if(!empty($output_array)){
     $gallery_name = $output_array[0];
-    
+
     $photo_directories = scandir("photos");
     if($photo_directories){
       $i=0;
@@ -37,8 +37,8 @@ render_menu($gallery_name);
         $i++;
       }
     }
-    
-    
+
+
     $gallery_path = "photos/$gallery_name/";
 
     if(file_exists ("$gallery_path/intro.txt")){
@@ -74,8 +74,8 @@ function init() {
   for (var i=0; i<imgDefer.length; i++) {
     if(imgDefer[i].getAttribute('data-src')) {
       imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
-    } 
-  } 
+    }
+  }
 }
 window.addEventListener('load', init);
 </script>

@@ -27,7 +27,7 @@
               } else {
                 echo "<h3><a href='/claire/gallery/?gallery=$directory'>$directory</a></h3>";
               }
-              
+
             }
             $i++;
           }
