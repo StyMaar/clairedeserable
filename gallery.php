@@ -40,6 +40,17 @@ render_menu($gallery_name);
     
     
     $gallery_path = "photos/$gallery_name/";
+
+    if(file_exists ("$gallery_path/intro.txt")){
+      $handle = fopen("$gallery_path/intro.txt", 'r');
+      echo "<p>";
+      while (($line = fgets($handle)) !== false) {
+        echo "$line<br />";
+      }
+      echo "</p>";
+      fclose($handle );
+    }
+
     $photos = scandir("$gallery_path");
     $k=0;
     foreach ($photos as $photo){
